@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class MenubarComponent {
   badgevisible = false;
+  noti = "notifications";
   badgevisibility(){
     this.badgevisible = !this.badgevisible;
+    this.noti = "notifications_off";
+    if(!this.badgevisible){
+      this.noti = "notifications";
+    }
   }
 }

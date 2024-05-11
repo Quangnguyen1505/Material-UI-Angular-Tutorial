@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
-    <button routerLink="" mat-icon-button>
+    <button (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
     </button>
     <span>Material Ui Tutorial</span>
@@ -37,7 +37,49 @@
     <button routerLink="/input" mat-button>Input</button>
     <button routerLink="/autocomplete" mat-button>Autocomplete</button>
     <button mat-raised-button color="accent">SignUp</button>
-    <button (click)="badgevisibility()" routerLink="" mat-icon-button>
-        <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">notifications</mat-icon>
+    <button (click)="badgevisibility()" mat-icon-button>
+        <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">{{noti}}</mat-icon>
     </button>
 </mat-toolbar>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer opened="true" mode="side" position="start">
+        <mat-nav-list>
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>dashboard</mat-icon> Dashboard
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>home</mat-icon> Home
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>settings</mat-icon> Settings
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>help</mat-icon> Help
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>analytics</mat-icon> Analytics
+                </button>
+            </mat-list-item>
+
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <div class="content" style="text-align: center; min-height: 600px;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
